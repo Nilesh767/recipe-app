@@ -1,0 +1,10 @@
+INSERT into category(description) values ('Punjabi');
+INSERT into category(description) values ('Gujarati');
+INSERT into category(description) values ('South Indian');
+INSERT into category(description) values ('Italian');
+INSERT into category(description) values ('Chinese');
+INSERT into unit_of_measure(description) values ('TeaSpoon');
+INSERT into unit_of_measure(description) values ('TableSpoon');
+INSERT into unit_of_measure(description) values ('Cup');
+INSERT into unit_of_measure(description) values ('Pinch');
+INSERT into unit_of_measure(description) values ('Gram');
