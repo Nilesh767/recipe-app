@@ -13,6 +13,12 @@ public class Category {
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
 
+
+
+
+
+
+//getter and setter
     public Long getId() {
         return id;
     }

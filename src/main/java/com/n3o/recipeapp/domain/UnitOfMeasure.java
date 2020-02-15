@@ -12,6 +12,9 @@ public class UnitOfMeasure {
     private Long id;
     private String description;
 
+
+
+    //getter and setter
     public Long getId() {
         return id;
     }
