@@ -16,7 +16,7 @@ public class Ingredient {
     private UnitOfMeasure unitOfMeasure;
 
     @ManyToOne
-    private  Recipe recipe;
+    private Recipe recipe;
 
     public Ingredient() {
     }
