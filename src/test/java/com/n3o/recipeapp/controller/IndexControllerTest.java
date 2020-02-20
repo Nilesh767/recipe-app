@@ -29,6 +29,7 @@ class IndexControllerTest {
     Model model;
 
     IndexController indexController;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -55,10 +56,10 @@ class IndexControllerTest {
         ArgumentCaptor<Set<Recipe>> argumentCaptor = ArgumentCaptor.forClass(Set.class);
         String s = indexController.getIndexPage(model);
         //then
-        assertEquals("index",s);
-        verify(recipeService,times(1)).getRecipes();
-        verify(model,times(1)).addAttribute(eq("recipes"),argumentCaptor.capture());
+        assertEquals("index", s);
+        verify(recipeService, times(1)).getRecipes();
+        verify(model, times(1)).addAttribute(eq("recipes"), argumentCaptor.capture());
         Set<Recipe> setInController = argumentCaptor.getValue();
-        assertEquals(2,setInController.size());
+        assertEquals(2, setInController.size());
     }
 }

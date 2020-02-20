@@ -18,12 +18,12 @@ class UnitOfMeasureRepositoryITTest {
     @Test
     void findByDescription() {
         Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Teaspoon");
-        assertEquals("Teaspoon",unitOfMeasureOptional.get().getDescription());
+        assertEquals("Teaspoon", unitOfMeasureOptional.get().getDescription());
     }
 
     @Test
     void findByDescriptionCup() {
         Optional<UnitOfMeasure> unitOfMeasureOptional = unitOfMeasureRepository.findByDescription("Cup");
-        assertEquals("Cup",unitOfMeasureOptional.get().getDescription());
+        assertEquals("Cup", unitOfMeasureOptional.get().getDescription());
     }
 }

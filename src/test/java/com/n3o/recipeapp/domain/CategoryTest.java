@@ -9,7 +9,7 @@ class CategoryTest {
     Category category;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         category = new Category();
     }
 
@@ -17,7 +17,7 @@ class CategoryTest {
     void getId() {
         Long idValue = 4L;
         category.setId(idValue);
-        assertEquals(4l,category.getId());
+        assertEquals(4l, category.getId());
     }
 
     @Test
