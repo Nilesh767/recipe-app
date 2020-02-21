@@ -28,7 +28,7 @@ class RecipeControllerTest {
     MockMvc mockMvc;
 
     @BeforeEach
-    public void setUp() throws Exception {
+    public void setUp(){
         MockitoAnnotations.initMocks(this);
 
         controller = new RecipeController(recipeService);
@@ -37,12 +37,12 @@ class RecipeControllerTest {
 
     @Test
     public void testGetRecipe() throws Exception {
-
+        //given
         Recipe recipe = new Recipe();
         recipe.setId(1L);
-
+        //when
         when(recipeService.findById(anyLong())).thenReturn(recipe);
-
+        //then
         mockMvc.perform(get("/recipe/1/show"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
@@ -51,8 +51,6 @@ class RecipeControllerTest {
 
     @Test
     public void testGetNewRecipeForm() throws Exception {
-        RecipeCommand command = new RecipeCommand();
-
         mockMvc.perform(get("/recipe/new"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/recipeform"))
@@ -61,11 +59,12 @@ class RecipeControllerTest {
 
     @Test
     public void testPostNewRecipeForm() throws Exception {
+        //given
         RecipeCommand command = new RecipeCommand();
         command.setId(2L);
-
+        //when
         when(recipeService.saveRecipeCommand(any())).thenReturn(command);
-
+        //then
         mockMvc.perform(post("/recipe")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("id", "")
@@ -77,11 +76,12 @@ class RecipeControllerTest {
 
     @Test
     public void testGetUpdateView() throws Exception {
+        //given
         RecipeCommand command = new RecipeCommand();
         command.setId(2L);
-
+        //when
         when(recipeService.findCommandById(anyLong())).thenReturn(command);
-
+        //then
         mockMvc.perform(get("/recipe/1/update"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/recipeform"))
@@ -94,6 +94,5 @@ class RecipeControllerTest {
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/"));
         verify(recipeService,times(1)).deleteById(anyLong());
-
     }
 }
