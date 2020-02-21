@@ -9,10 +9,8 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           rel="stylesheet"
           th:href="@{/webjars/bootstrap/4.4.1/css/bootstrap.min.css}">
-
     <!--Jquery -->
     <script src="/webjars/jquery/3.0.0/jquery.min.js"></script>
-
     <!--Bootstrap JS -->
     <script crossorigin="anonymous"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
@@ -21,6 +19,8 @@
     </script>
 </head>
 <body>
+<!--/*@thymesVar id="recipes" type="java.util.List"*/-->
+<!--/*@thymesVar id="recipe" type="com.n3o.recipeapp.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row justify-content-center">
         <div class="col-md-6 col-md-offset-3">
@@ -40,19 +40,19 @@
                             </thead>
                             <tr th:remove="all">
                                 <td>123</td>
-                                <td>Tasty Goodnees 1</td>
+                                <td>Tasty Good 1</td>
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:remove="all">
                                 <td>12333</td>
-                                <td>Tasty Goodnees 2</td>
+                                <td>Tasty Good 2</td>
                                 <td><a href="#">View</a></td>
                             </tr>
                             <tr th:each="recipe : ${recipes}">
                                 <!--/*thymesVar id="recipe" type="com.n3o.recipeapp.domain.Recipe"*/-->
                                 <td th:text="${recipe.id}">123</td>
                                 <td th:text="${recipe.description}">Entries</td>
-                                <td><a href="#" th:href="@{'/recipe/show/'+ ${recipe.id}}">view</a></td>
+                                <td><a href="#" th:href="@{'/recipe/'+ ${recipe.id} + '/show'}">view</a></td>
                             </tr>
                         </table>
                     </div>
