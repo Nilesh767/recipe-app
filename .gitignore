@@ -1,10 +1,16 @@
+HELP.md
+######################
+target/
 ######################
 # Project Specific
 ######################
+!.mvn/wrapper/maven-wrapper.jar
 /build/www/**
 /src/test/javascript/coverage/
 /src/test/javascript/PhantomJS*/
-
+**/src/main/**
+/build/www/**
+**/src/test/**
 ######################
 # Node
 ######################
