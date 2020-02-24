@@ -24,25 +24,45 @@
 <!--/*@thymesVar id="recipe" type="com.n3o.recipeapp.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6">
             <div class="card border-dark">
                 <div class="card-header bg-dark text-center text-white">
-                    <h1 class="card-title" th:text="${recipe.description}">Recipe Description Here!</h1>
+                    <!--<h4 class="card-title col-md-10" th:text="${recipe.description}">Recipe Description Here!</h4>
+                    <div class="col-md-6 float-right">
+                        <a class="btn btn-danger" href="#"
+                           th:href="@{'/recipe/' + ${recipe.id} + '/image'}" role="button">Change Image</a>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-md-8" >
+                            <h3 class="card-title"th:text="${recipe.description}">Recipe Description Here!</h3>
+                        </div>
+                        <div class="col-md-4">
+                            <a class="btn btn-danger" href="#"  th:href="@{'/recipe/' + ${recipe.id} + '/image'}" role="button">Change Image</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
-                    <div class="row">
+                    <div class="row justify-content-md-start">
                         <div class="col-md-3">
                             <h5>Categories:</h5>
                         </div>
-                        <div class="col-md-9">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item" th:remove="all">cat one</li>
-                                <li class="list-group-item" th:remove="all">cat two</li>
-                                <li class="list-group-item" th:each="category : ${recipe.categories}" th:text="${category.getDescription()}">cat three
+                        <div class="col-md-6">
+                            <ul>
+                                <li th:remove="all">cat one
+                                <div class="col-md-6 float-right">
+                                    <img src="../../static/images/guacamole400x400WithX.jpg"
+                                         th:src="@{/images/guacamole400x400WithX.jpg}"
+                                         width="200" height="200" alt="no image">
+                                </div>
+                                </li>
+                                <li th:remove="all">cat two</li>
+                                <li th:each="category : ${recipe.categories}" th:text="${category.getDescription()}">cat three
                                 </li>
                             </ul>
                         </div>
+
                     </div>
+                    <br>
                     <div class="row">
                         <div class="col-md-3">
                             <h5>Prep Time:</h5>
@@ -92,7 +112,7 @@
                 <div class="card-header  bg-dark text-center text-white">
                     <div class="row">
                         <div class="col-md-10">
-                            <h1 class="card-title">Ingredients</h1>
+                            <h3 class="card-title">Ingredients</h3>
                         </div>
                         <div class="col-md-1">
                             <a class="btn btn-danger" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
@@ -118,7 +138,7 @@
             <br>
             <div class="card border-dark">
                 <div class="card-header bg-dark text-center text-white">
-                    <h1 class="card-title">Directions</h1>
+                    <h3 class="card-title">Directions</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -131,12 +151,12 @@
             <br>
             <div class="card border-dark">
                 <div class="card-header bg-dark text-center text-white">
-                    <h1 class="card-title">Notes</h1>
+                    <h3 class="card-title">Notes</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <p th:text="${recipe.notes.recipeNotes}">njknjknkjn</div>
+                            <p th:text="${recipe.notes.recipeNotes}">notes</div>
                     </div>
                 </div>
             </div>
