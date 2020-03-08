@@ -60,16 +60,4 @@ public class RecipeController {
         exception.getMessage();
         return view;
     }
-
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(NumberFormatException.class)
-    public ModelAndView handleNumberFormat(Exception exception){
-        log.error("Bad Request Error");
-        log.error(exception.getMessage());
-        ModelAndView view = new ModelAndView();
-        view.setViewName("400error");
-        view.addObject("exception", exception);
-        exception.getMessage();
-        return view;
-    }
 }
