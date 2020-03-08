@@ -2,6 +2,7 @@ package com.n3o.recipeapp.controller;
 
 import com.n3o.recipeapp.commands.RecipeCommand;
 import com.n3o.recipeapp.domain.Recipe;
+import com.n3o.recipeapp.exceptions.NotFoundException;
 import com.n3o.recipeapp.services.RecipeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,6 +48,18 @@ class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
+    }
+
+    @Test
+    public void testGetRecipeNotFound() throws Exception {
+        //given
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+        //when
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+        //then
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
