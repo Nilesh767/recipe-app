@@ -98,7 +98,7 @@ class RecipeControllerTest {
     }
 
     @Test
-    public void testPostNewRecipeFormValidation() throws Exception {
+    public void testPostNewRecipeFormValidationFail() throws Exception {
         //given
         RecipeCommand command = new RecipeCommand();
         command.setId(2L);
@@ -108,6 +108,7 @@ class RecipeControllerTest {
         mockMvc.perform(post("/recipe")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("id", "")
+                .param("cookTime","3000")
         )
                 .andExpect(status().isOk())
                 .andExpect(model().attributeExists("recipe"))
